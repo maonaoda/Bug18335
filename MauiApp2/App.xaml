@@ -1,0 +1,33 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp2"
+             x:Class="MauiApp2.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="MainPageTemplate">
+                <Grid RowDefinitions="49, *" ColumnDefinitions="*, *, *, *, *, *, *, *, *, *">
+                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" HeightRequest="49">
+                        <StackLayout.Background>
+                            <LinearGradientBrush StartPoint="0, 0.5" EndPoint="1, 0.5">
+                                <GradientStop Color="#00C9D1" Offset="0" />
+                                <GradientStop Color="#0098A5" Offset="1" />
+                            </LinearGradientBrush>
+                        </StackLayout.Background>
+                    </StackLayout>
+                    <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="6"
+                          HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Transparent"
+                          Text="Title"
+                          TextColor="#FFFFFF" FontSize="16" LineBreakMode="TailTruncation" FontAttributes="Bold"/>
+                    <ContentPresenter Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="10"
+                                     VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </Grid>
+            </ControlTemplate>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
