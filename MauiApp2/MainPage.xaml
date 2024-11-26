@@ -1,17 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             ControlTemplate="{StaticResource MainPageTemplate}"
-             x:Class="MauiApp2.MainPage">
-    <AbsoluteLayout VerticalOptions="Fill" BackgroundColor="White">
-        <Grid BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <WebView Grid.Row="0" Grid.Column="0" x:Name="WebViewInstance" 
-                              Source="{Binding CustomWebViewSource.Value}"
-                              BackgroundColor="Pink"
-                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+<ContentPage
+    x:Class="MauiApp2.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    ControlTemplate="{StaticResource MainPageTemplate}">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Pink" RowDefinitions="*,auto,*" ColumnDefinitions="*,auto,*">
+            <WebView
+                x:Name="WebViewInstance"
+                Grid.Row="0" Grid.RowSpan="3"
+                Grid.Column="0" Grid.ColumnSpan="3"
+                HorizontalOptions="Fill"
+                Source="{Binding CustomWebViewSource.Value}"
+                VerticalOptions="Fill" />
+            <Border
+                x:Name="WebViewBorder"
+                Grid.Row="0" Grid.RowSpan="3"
+                Grid.Column="0" Grid.ColumnSpan="3"
+                Stroke="Red"
+                StrokeThickness="10" />
+            <Button
+                Grid.Row="1" Grid.Column="1"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center"
+                Text="Load Url"
+                VerticalOptions="Center" />
         </Grid>
-        <StackLayout BackgroundColor="#22000000" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <Button Text="Load Url" Clicked="OnCounterClicked" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-        </StackLayout>
-    </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>

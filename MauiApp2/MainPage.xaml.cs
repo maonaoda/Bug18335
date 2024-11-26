@@ -1,8 +1,32 @@
 ﻿
+using Microsoft.Maui.Handlers;
+using Microsoft.Maui.Platform;
 using Reactive.Bindings;
+#if ANDROID
+using Android.Widget;
+using static Android.Views.ViewGroup;
+#endif
 
 namespace MauiApp2
 {
+#if ANDROID
+    public class WebViewHandler2 : WebViewHandler
+    {
+        protected override void ConnectHandler(Android.Webkit.WebView platformView)
+        {
+            base.ConnectHandler(platformView);
+
+            platformView.SetBackgroundColor(Colors.Transparent.ToPlatform());
+            platformView.PostDelayed(() =>
+            {
+                platformView.RequestLayout();
+                platformView.Invalidate();
+                platformView.PerformClick();
+            }, 50);
+        }
+    }
+#endif
+
     public partial class MainPage : ContentPage
     {
         int count = 0;

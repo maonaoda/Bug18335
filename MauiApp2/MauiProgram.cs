@@ -9,6 +9,12 @@ namespace MauiApp2
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureMauiHandlers(handlers =>
+                {
+#if ANDROID
+                    //handlers.AddHandler(typeof(WebView), typeof(WebViewHandler2));
+#endif
+                })
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

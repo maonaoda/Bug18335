@@ -20,7 +20,7 @@
                           Text="Title"
                           TextColor="#FFFFFF" FontSize="16" LineBreakMode="TailTruncation" FontAttributes="Bold"/>
                     <ContentPresenter Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="10"
-                                     VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                                     VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="White" />
                 </Grid>
             </ControlTemplate>
 
